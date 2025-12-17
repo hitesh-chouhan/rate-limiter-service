@@ -1,22 +1,46 @@
-#Simple Rate Limiter Service
+# Simple Rate Limiter Service
 
-##Description
+## Description
 A backend service implementing per User ID and per IP address.
 
-##Rate Limits
-- User ID: 5 requests per minute
-- IP Address: 20 requests per minute
+## Rate Limits
+- **User ID**: 5 requests per minute
+- **IP Address**: 20 requests per minute
 
 ##Tech Stack
 - Node.js
 - Express.js
 - Redis
 
-##API
-##GET /data
+## API
+## GET /data
 
-Headers:
+## Headers
+
+```text
+userId: some-user-id
+
+---
+### Setup 
+```md
+## Setup
 
 ```bash 
 npm install
 npm run dev
+
+### Success response
+
+```json
+{
+"message": "Request successful",
+"data": "Protected data response"
+}
+
+---
+### Rate Limit Error Response
+```md
+### Rate Limit Exceeded
+{
+"message": "User rate limit exceeded"
+}
